@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
         - name: data-migration-delete-job
-          image: perl:5.34.0
+          image: bitnami/kubectl:latest
           command:
             - kubectl
             - delete
