@@ -13,4 +13,4 @@ spec:
             - "LEAD"
           command: ["echo", "Welcome to my Java app"]
       restartPolicy: Never
-    backoffLimit: 0
+  backoffLimit: 0
