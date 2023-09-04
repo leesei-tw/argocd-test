@@ -4,6 +4,8 @@ metadata:
   name: data-migration-job
   generateName: data-migration-job-
   annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
     argocd.argoproj.io/sync-options: Replace=true
 spec:
   template:
@@ -13,7 +15,7 @@ spec:
           image: perl:5.34.0
           args:
             - "ALL"
-            - "LEAD"
+            - "TRUST"
           command: ["echo", "Welcome to my Java app"]
       restartPolicy: Never
   backoffLimit: 0
