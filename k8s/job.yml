@@ -14,7 +14,7 @@ spec:
           image: perl:5.34.0
           args:
             - "ALL"
-            - "CASE"
+            - "ALL"
           command: ["echo", "Welcome to my Java app"]
       restartPolicy: Never
   backoffLimit: 0
