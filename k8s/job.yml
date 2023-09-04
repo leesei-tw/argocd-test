@@ -4,8 +4,6 @@ metadata:
   name: data-migration-job
   generateName: data-migration-job-
   annotations:
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   template:
     spec:
