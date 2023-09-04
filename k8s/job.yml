@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: data-migration-job
+spec:
+  template:
+    containers:
+      - name: data-migration
+        image: alphine
+        args:
+          - "ALL"
+          - "LEAD"
+        command: ["echo", "Welcome to my Java app"]
+    restartPolicy: Never
+  backoffLimit: 0
