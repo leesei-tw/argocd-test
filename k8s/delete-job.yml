@@ -3,6 +3,7 @@ kind: Job
 metadata:
   name: data-migration-delete-job
   annotations:
+    argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/hook: Sync
 spec:
   template:
