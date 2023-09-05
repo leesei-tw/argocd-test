@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: data-migration-job
+spec:
+  source:
+    path: k8s
+    repoURL: 'https://github.com/leesei-tw/argocd-test.git'
+    targetRevision: HEAD
+  destination:
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  preSync:
+    - name: setup-rbac
+      hook:
+        before:
+          - sync: '*'
+            manifest: |
+              apiVersion: v1
+              kind: ServiceAccount
+              metadata:
+                name: delete-service-account
+                namespace: default
+                argocd.argoproj.io/hook: PreSync
+              ---
+              apiVersion: rbac.authorization.k8s.io/v1
+              kind: Role
+              metadata:
+                name: delete-resource-role
+                namespace: default
+                argocd.argoproj.io/hook: PreSync
+              rules:
+                - apiGroups: [ "batch" ]
+                  resources: [ "jobs" ]
+                  verbs: [ "delete" ]
+              ---
+              apiVersion: rbac.authorization.k8s.io/v1
+              kind: RoleBinding
+              metadata:
+                name: delete-resource-binding
+                namespace: default
+                argocd.argoproj.io/hook: PreSync
+              subjects:
+                - kind: ServiceAccount
+                  name: delete-service-account
+              roleRef:
+                kind: Role
+                name: delete-resource-role
+                apiGroup: rbac.authorization.k8s.io
