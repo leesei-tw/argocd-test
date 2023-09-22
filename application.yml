@@ -23,7 +23,7 @@ spec:
   # used during the sync process unless the `RespectIgnoreDifferences=true` sync option is enabled.
   ignoreDifferences:
     # for the specified json pointers
-    - group: apps
+    - group: *
       kind: Job
       jqPathExpressions:
         - .spec.template.spec.containers[] | select(.name == "test").env[] | select(.name != "RUN_COUNT")
