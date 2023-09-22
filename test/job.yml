@@ -18,7 +18,7 @@ spec:
             - name: RUN_COUNT
               value: "1"
           args:
-            - "ALL"
+            - "LOL"
             - "TEST"
           command: ["echo", "Welcome to my Java app"]
       restartPolicy: Never
