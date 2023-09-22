@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: data-migration-job
+  name: data-migration-job-test
 spec:
   source:
-    path: k8s
+    path: test
     repoURL: 'https://github.com/leesei-tw/argocd-test.git'
     targetRevision: HEAD
   destination:
