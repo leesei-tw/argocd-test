@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: data-migration-job-test
+  name: data-migration-something
 spec:
   source:
     path: test
