@@ -10,6 +10,13 @@ spec:
       containers:
         - name: test
           image: perl:5.34.0
+          env:
+            - name: TEST_1
+              value: "something"
+            - name: TEST_2
+              value: "lol"
+            - name: RUN_COUNT
+              value: "1"
           args:
             - "ALL"
             - "TEST"
