@@ -18,7 +18,7 @@ spec:
             - name: RUN_COUNT
               value: "3"
             - name: TEST
-              value: "3"
+              value: "4"
           args:
             - "LOL"
             - "TEST"
