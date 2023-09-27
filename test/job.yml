@@ -19,6 +19,8 @@ spec:
               value: "3"
             - name: TEST
               value: "4"
+            - name: LOL
+              value: "5"
           args:
             - "LOL"
             - "TEST"
