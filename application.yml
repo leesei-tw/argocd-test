@@ -26,5 +26,6 @@ spec:
     - group: "*"
       kind: Job
       jqPathExpressions:
-        - .spec.template.spec.containers[] | select(.name == "test").env[] | select(.name != "RUN_COUNT")
-        - .spec.template.spec.containers[] | select(.name == "test").args[]
+        - >-
+          .spec.template.spec.containers[] | select(.name == "test").env[] | select(.name != "RUN_COUNT")
+        - '.spec.template.spec.containers[] | select(.name == "test").args[]'
